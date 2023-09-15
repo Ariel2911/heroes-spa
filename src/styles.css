@@ -73,3 +73,7 @@ a {
 .active {
   color: red;
 }
+
+.container {
+  margin: 0 52px;
+}
