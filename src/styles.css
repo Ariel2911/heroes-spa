@@ -1,1 +1,75 @@
+:root {
+  --primari-color: #4661fa;
+  --primari-color-ligth: #c7f4fc;
+  --primari-color-dark: #395e6e;
+}
 
+body {
+  margin: 0;
+  background-color: var(--primari-color-dark);
+  color: var(--primari-color-ligth);
+}
+
+a {
+  text-decoration: none;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+
+  background-color: var(--primari-color-ligth);
+}
+
+.navbar-collapse {
+  align-items: center;
+}
+
+.navbar-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 8px;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: end;
+  flex-grow: 1;
+}
+
+.text-prymary {
+  color: var(--primari-color);
+  font-weight: 600;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+}
+
+.active {
+  color: red;
+}
