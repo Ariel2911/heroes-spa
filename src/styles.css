@@ -85,3 +85,17 @@ a {
 .container {
   margin: 0 52px;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px
+}
+
+.card {
+  width: 216px;
+}
+
+.card-img {
+  width: 100%;
+}
