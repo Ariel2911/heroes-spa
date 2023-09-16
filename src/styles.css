@@ -70,6 +70,14 @@ a {
   font-size: inherit;
 }
 
+.btn-prymary {
+  background-color: var(--primari-color);
+  border-radius: 4px;
+  border: 1px solid black;
+  color: var(--primari-color-ligth);
+  padding: 4px 8px;
+}
+
 .active {
   color: red;
 }
