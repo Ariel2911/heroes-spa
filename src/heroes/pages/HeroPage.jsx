@@ -1,12 +1,16 @@
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import { getHeroById } from "../helpers";
 
 export const HeroPage = () => {
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const hero = getHeroById(id);
 
+  const onNavigateBack = () => {
+    navigate(-1)
+  }
 
   if (!hero) {
     return <Navigate to="/marvel" />
@@ -30,7 +34,7 @@ export const HeroPage = () => {
           <h4 className="mt-3">Characters</h4>
           <p>{hero.characters}</p>
 
-          <button className="btn btn-outline-primary" >
+          <button className="btn btn-outline-primary" onClick={onNavigateBack}>
             Back
           </button>
         </div>
