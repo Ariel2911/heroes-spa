@@ -99,3 +99,7 @@ a {
 .card-img {
   width: 100%;
 }
+
+.img-thumbnail {
+  width: 60vw;
+}
