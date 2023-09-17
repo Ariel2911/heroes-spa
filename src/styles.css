@@ -1,7 +1,11 @@
 :root {
   --primari-color: #4661fa;
+  --primari-color-alpha: #4661fa34;
   --primari-color-ligth: #c7f4fc;
   --primari-color-dark: #395e6e;
+  --danger-color: #e61213;
+  --danger-color-alpha: #e6121257;
+  --grey-color: #808080;
 }
 
 body {
@@ -102,4 +106,20 @@ a {
 
 .img-thumbnail {
   width: 60vw;
+}
+
+.alert {
+  width: 70vw;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid var(--grey-color);
+  border-radius: 4px;
+}
+
+.alert-primary {
+  background-color: var(--primari-color-alpha);
+}
+
+.alert-danger {
+  background-color: var(--danger-color-alpha);
 }
