@@ -5,7 +5,7 @@ import { types } from '../types/types';
 
 const init = () => {
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log(user);
+
   return {
     logged: !!user,
     user: user,
@@ -31,11 +31,23 @@ export const AuthProvider = ({ children }) => {
     dispatch(action);
   };
 
+  const logout = () => {
+    localStorage.removeItem('user');
+
+    const action = {
+      type: types.logout,
+    };
+
+    dispatch(action);
+  };
+
   return (
     <AuthContext.Provider
       value={{
         ...authState,
-        login: login,
+        //Methods
+        login,
+        logout,
       }}
     >
       {children}
