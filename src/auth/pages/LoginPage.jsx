@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 export const LoginPage = () => {
-
-  const { login } = useContext(AuthContext)
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onLogin = () => {
+    const lastPath = localStorage.getItem('lastPath') || '/';
 
-    login('mar');
+    login('Ariel');
 
-    navigate('/', {
+    navigate(lastPath, {
       replace: true,
     });
   };
