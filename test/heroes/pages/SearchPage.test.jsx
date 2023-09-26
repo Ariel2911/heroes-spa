@@ -34,4 +34,18 @@ describe('Pruebas en <SearchPage />', () => {
 
     expect(alertDanger.style.display).toBe('none');
   });
+
+  test('debe mostrar un error si no se encuentra el heroe (batman123)', () => {
+    render(
+      <MemoryRouter initialEntries={['/search?q=batman123']}>
+        <SearchPage />
+      </MemoryRouter>
+    );
+
+    // screen.debug();
+
+    const alertDanger = screen.getByLabelText('alert-danger');
+
+    expect(alertDanger.style.display).toBe('');
+  });
 });
