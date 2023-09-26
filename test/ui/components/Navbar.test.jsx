@@ -1,13 +1,7 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  renderHook,
-  act,
-} from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { AuthContext } from '../../../src/auth';
 import { Navbar } from '../../../src/ui';
-import { MemoryRouter, useNavigate } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 const mockUseNavigate = jest.fn();
 
