@@ -21,4 +21,25 @@ describe('Pruebas en <AppRouter />', () => {
 
     expect(screen.getByRole('button', { name: 'login' })).toBeTruthy();
   });
+
+  test('debe morstar el componente de Marvel si está autenticado', () => {
+    const contextValue = {
+      logged: true,
+      user: {
+        id: '123',
+        name: 'Fer',
+      },
+    };
+
+    render(
+      <MemoryRouter initialEntries={['/login']}>
+        <AuthContext.Provider value={contextValue}>
+          <AppRouter />
+        </AuthContext.Provider>
+      </MemoryRouter>
+    );
+    // screen.debug();
+
+    expect(screen.getByRole('heading', { name: 'Marvel Comics' })).toBeTruthy();
+  });
 });
