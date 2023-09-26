@@ -26,9 +26,21 @@ describe('Pruebas en authReducer', () => {
       payload: user
     };
 
-    const newState = authReducer({ logged: false }, action)
+    const newState = authReducer({ logged: false }, action);
 
-    expect(newState).toEqual({ logged: true, user })
+    expect(newState).toEqual({ logged: true, user });
 
   });
+
+  test('debe llamar la ación "logout", pasar el logged a false y borrar el user', () => {
+    const action = {
+      type: types.logout
+    };
+
+    const newState = authReducer({logged: true, user}, action);
+
+    expect(newState).toEqual({logged: false});
+
+  });
+  
 })
