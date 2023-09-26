@@ -1,8 +1,17 @@
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter, Navigate } from 'react-router-dom';
 import { SearchPage } from '../../../src/heroes';
 
+const mockNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockNavigate,
+}));
+
 describe('Pruebas en <SearchPage />', () => {
+  beforeEach(() => jest.clearAllMocks());
+
   test('debe mostrarse correctamente con valores por defecto', () => {
     const { container } = render(
       <MemoryRouter>
@@ -47,5 +56,28 @@ describe('Pruebas en <SearchPage />', () => {
     const alertDanger = screen.getByLabelText('alert-danger');
 
     expect(alertDanger.style.display).toBe('');
+  });
+
+  test('debe llamar el navigate a la pantalla nueva', () => {
+    const inputValue = 'superman';
+    render(
+      <MemoryRouter initialEntries={['/search']}>
+        <SearchPage />
+      </MemoryRouter>
+    );
+
+    // screen.debug();
+
+    const input = screen.getByRole('textbox');
+
+    fireEvent.change(input, {
+      target: { name: 'searchText', value: inputValue },
+    });
+
+    const form = screen.getByLabelText('form');
+
+    fireEvent.submit(form);
+
+    expect(mockNavigate).toHaveBeenCalledWith(`?q=${inputValue}`);
   });
 });
